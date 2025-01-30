@@ -1,5 +1,6 @@
 "use client";
 
+import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import {
@@ -11,6 +12,7 @@ import {
   IconTerminal2,
 } from "@tabler/icons-react";
 import Image from "next/image";
+import { ModeToggle } from "@/components/theme-switch";
 
 export default function RootLayout({
   children,
@@ -20,16 +22,27 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="">
-        <div className="flex flex-col min-h-screen">
-          <div className="flex-grow flex items-center justify-center">
-            {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div
+            className="fixed top-0 right-0 mt-2 mr-2 z-50"
+          >
+            <ModeToggle />
           </div>
-          <div className="absolute bottom-0 inset-x-0 flex items-center justify-center mb-8">
-            <FloatingDock
-              items={links}
-            />
+          <div className="flex flex-col min-h-screen">
+            <div className="flex-grow flex items-center justify-center">
+              {children}
+            </div>
+
+            <div className="fixed bottom-0 inset-x-0 flex items-center justify-center mb-8 z-50">
+              <FloatingDock items={links} />
+            </div>
           </div>
-        </div>
+        </ThemeProvider>
       </body>
     </html>
   );
@@ -41,14 +54,14 @@ const links = [
     icon: (
       <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
     ),
-    href: "#",
+    href: "/",
   },
   {
     title: "Products",
     icon: (
       <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />
     ),
-    href: "#",
+    href: "/pages/product-overview",
   },
   {
     title: "Components",

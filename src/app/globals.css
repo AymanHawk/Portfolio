@@ -67,3 +67,24 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes unblur {
+  from {
+    filter: blur(10px);
+    opacity: 0;
+  }
+  to {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.unblur-animation {
+  animation: unblur 1s ease-in-out forwards;
+}
+
+path {
+  stroke: black;
+  stroke-width: 1.7;
+  fill: none;
+}
