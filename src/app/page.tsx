@@ -22,17 +22,17 @@ export default function Page() {
                 delay={BLUR_FADE_DELAY}
                 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
                 yOffset={8}
-                text={`Hi, I'm ${DATA.name.split(" ")[0]} 👋`}
+                text={`Hey 👋🏽, I'm ${DATA.name.split(" ")[0]}`}
               />
               <BlurFadeText
-                className="max-w-[600px] md:text-xl"
+                className="max-w-[600px] md:text-xl whitespace-pre-line"
                 delay={BLUR_FADE_DELAY}
                 text={DATA.description}
               />
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
               <Avatar className="size-28 border">
-                <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
+                {/* <AvatarImage alt={DATA.name} src={DATA.avatarUrl} /> */}
                 <AvatarFallback>{DATA.initials}</AvatarFallback>
               </Avatar>
             </BlurFade>
@@ -61,7 +61,7 @@ export default function Page() {
             >
               <ResumeCard
                 key={work.company}
-                logoUrl={work.logoUrl}
+                // logoUrl={work.logoUrl}
                 altText={work.company}
                 title={work.company}
                 subtitle={work.title}
@@ -87,7 +87,7 @@ export default function Page() {
               <ResumeCard
                 key={education.school}
                 href={education.href}
-                logoUrl={education.logoUrl}
+                // logoUrl={education.logoUrl}
                 altText={education.school}
                 title={education.school}
                 subtitle={education.degree}

@@ -10,7 +10,7 @@ import Link from "next/link";
 import React from "react";
 
 interface ResumeCardProps {
-  logoUrl: string;
+  // logoUrl: string;
   altText: string;
   title: string;
   subtitle?: string;
@@ -20,7 +20,7 @@ interface ResumeCardProps {
   description?: string;
 }
 export const ResumeCard = ({
-  logoUrl,
+  // logoUrl,
   altText,
   title,
   subtitle,
@@ -48,7 +48,7 @@ export const ResumeCard = ({
         <div className="flex-none">
           <Avatar className="border size-12 m-auto bg-muted-background dark:bg-foreground">
             <AvatarImage
-              src={logoUrl}
+              // src={logoUrl}
               alt={altText}
               className="object-contain"
             />
